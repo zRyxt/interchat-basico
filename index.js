@@ -1,7 +1,26 @@
-//creado por tnfAngel
+//creado por zRyxt
 
 //creado de servidor en repl.it
-require("http").createServer((_, res) => res.end("Estoy vivo!")).listen(8080)
+//require("http").createServer((_, res) => res.end("Estoy vivo!")).listen(8080)
+//quita los "//" de el creador de replit si usas replit y borra lo de glitch
+
+//creador de servidor de glich
+const http = require('http');
+const express = require('express');
+const app = express();
+
+//app.use(express.static('public'));
+
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+
+app.listen(process.env.PORT);
+
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`); 
+}, 280000);
+
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
@@ -43,13 +62,13 @@ if(message.content == "g.help"){ // Check if content of message is "!ping"
 const embed = new Discord.MessageEmbed()
       .setAuthor(`${message.author.username} • ${message.author.id}`,message.author.displayAvatarURL())
       .setColor('RANDOM')
-      .setDescription("🟣 **GLOBAL CHAT HELP** 🟣\nPara ayuda en español usa: `gfree.ayuda`")
-      .setURL("https://discord.gg/YQHeYFE")
+      .setDescription("🟣 **GLOBAL CHAT HELP** 🟣\nPara ayuda en español usa: `g.ayuda`")
+      .setURL("")
       .addField("`g.canal`", "Defines the ** channel ** in which the global chat will work. Example: g.canal #global-chat.")
       .addField("`g.help`", "Shows this **message**.")
       .addField("`g.ping`", "Shows the **delay** of the bot sending a message.")
       .addField("`g.invite`", "Make an **invite** for the actual channel.")
-      .addField("▬▬▬▬▬▬▬▬▬\nImportant links:", "[invite to your server](https://discord.com/api/oauth2/authorize?client_id=733659609952157706&permissions=388161&scope=bot) | [support server](https://discord.gg/YQHeYFE) | [youtube](https://youtube.com/tnfAngel)")
+      .addField("▬▬▬▬▬▬▬▬▬\nImportant links:", "[invite to your server]() | [support server]() | [youtube]()")
       .setTimestamp()
       .setFooter(`Created by `);
       message.channel.send(embed);
@@ -62,12 +81,12 @@ const embed = new Discord.MessageEmbed()
       .setAuthor(`${message.author.username} • ${message.author.id}`,message.author.displayAvatarURL())
       .setColor('RANDOM')
       .setDescription("🟣 **AYUDA CHAT GLOBAL** 🟣\nFor help in english use: `g.help`")
-      .setURL("https://discord.gg/YQHeYFE")
+      .setURL("")
       .addField("`g.canal`", "Define el **canal** en el que va a funcionar el chat global. Ejemplo: g.canal #chat-global.")
       .addField("`g.ayuda`", "Muestra este **mensaje**.")
       .addField("`g.ping`", "Muestra el **retraso** que tiene el bot al enviar un mensaje.")
       .addField("`g.invite`", "Crea una **invitacion** al canal actual.")
-      .addField("▬▬▬▬▬▬▬▬▬\nEnlaces importantes:", "[invitame a tu servidor](https://discord.com/api/oauth2/authorize?client_id=733659609952157706&permissions=388161&scope=bot) | [servidor de soporte](https://discord.gg/YQHeYFE) | [youtube](https://youtube.com/tnfAngel)")
+      .addField("▬▬▬▬▬▬▬▬▬\nEnlaces importantes:", "[invitame a tu servidor]() | [servidor de soporte]() | [youtube]()")
       .setTimestamp()
       .setFooter(`Creado por `);
       message.channel.send(embed);
@@ -106,7 +125,7 @@ channel.createInvite({unique: true})
     const embed = new Discord.MessageEmbed()
       .setAuthor(`${message.author.tag} • ${message.author.id}`,message.author.displayAvatarURL())
       .setColor('RANDOM')
-      .setDescription(`🟣 **CHAT GLOBAL** 🟣\n \n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n[unirse a este servidor](https://discord.gg/${invite.code})  |  [invitacion del bot])\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
+      .setDescription(`🟣 **CHAT GLOBAL** 🟣\n \n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n[unirse a este servidor](https://discord.gg/${invite.code})  |  [invitacion del bot]()\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
       .setURL("https://discord.gg/")
       .addField("**Mensaje:**", message.content)
       .setTimestamp()
